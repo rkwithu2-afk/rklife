@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RK Life - Home</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>RK Life - Home: ज्ञान, प्रकृति और शांति का संगम</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Georgia', serif; /* शांत और पारंपरिक फ़ॉन्ट */
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
+            background-color: #fcfbf7; /* बहुत हल्का क्रीम/सफ़ेद */
             color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* प्रकृति-प्रेरित हरा */
             color: white;
-            padding: 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0 0 0.5rem;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
         }
         nav {
             display: flex;
@@ -27,64 +33,110 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            margin: 0 0.5rem;
+            padding: 0.6rem 1rem;
+            margin: 0 0.4rem;
             border-radius: 4px;
             transition: background-color 0.3s;
+            font-weight: bold;
         }
         nav a:hover {
-            background-color: #45a049;
+            background-color: #388E3C; /* गहरा हरा हॉवर */
         }
         main {
-            padding: 2rem;
+            padding: 2rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-        .project-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            overflow: hidden;
+        
+        /* --- नया परिचय सेक्शन स्टाइल --- */
+        .intro-section {
             text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: #e8f5e8; /* हल्का हरा/शांत पृष्ठभूमि */
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        .project-card img {
+        .intro-section h2 {
+            color: #2e7d32; /* गहरा हरा */
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* --- फोटो गैलरी स्टाइल --- */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 3rem;
+        }
+        .photo-gallery img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
-        .project-card h3 {
-            margin: 1rem 0;
-            padding: 0 1rem;
+        .photo-gallery img:hover {
+            transform: scale(1.03);
         }
+
+        /* --- सेक्शन अवलोकन कार्ड्स (Section Overview Cards) --- */
+        .section-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .overview-card {
+            background: white;
+            border-left: 5px solid #4CAF50; /* आकर्षक साइड पट्टी */
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .overview-card:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        .overview-card h3 {
+            color: #2e7d32;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .overview-card a {
+            color: #388E3C;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
         footer {
-            background-color: #333;
-            color: white;
             text-align: center;
             padding: 1rem;
-            margin-top: 2rem;
+            background-color: #333;
+            color: white;
         }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
+            header h1 {
+                font-size: 2rem;
             }
             nav {
                 flex-direction: column;
             }
             nav a {
-                margin: 0.25rem 0;
+                margin: 0.2rem 0;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>RK Life</h1>
+        <h1>RK Life: ज्ञान, प्रकृति और शांति</h1>
         <nav>
             <a href="index.html">Home</a>
             <a href="gardening.html">Gardening Projects</a>
@@ -96,24 +148,42 @@
     </header>
     
     <main id="home">
-        <section class="projects-grid">
-            <div class="project-card">
-                <img src="placeholder-gardening1.jpg" alt="Gardening Project 1">
-                <h3>Project 1: Herb Garden</h3>
-            </div>
-            <div class="project-card">
-                <img src="placeholder-gardening2.jpg" alt="Gardening Project 2">
-                <h3>Project 2: Vegetable Patch</h3>
-            </div>
-            <div class="project-card">
-                <img src="placeholder-gardening3.jpg" alt="Gardening Project 3">
-                <h3>Project 3: Flower Bed</h3>
+        
+        <section class="intro-section">
+            <h2>एक शांत और सार्थक जीवन की ओर</h2>
+            <p>
+                RK Life की इस डिजिटल दुनिया में आपका स्वागत है। यह प्लेटफ़ॉर्म मेरे जीवन के तीन मुख्य स्तंभों को समर्पित है: **ज्ञान की खोज (Book Library)**, **प्रकृति से जुड़ाव (Gardening)**, और **आत्मिक चिंतन (Spiritual Writings)**। यहाँ आपको केवल जानकारी ही नहीं, बल्कि शांति और प्रेरणा भी मिलेगी। आइए, हमारे विभिन्न सेक्शन में गोता लगाएँ।
+            </p>
+        </section>
+        
+        <section>
+            <h2 style="text-align: center; color: #4CAF50; margin-bottom: 2rem;">जीवन के कुछ दृश्य</h2>
+            <div class="photo-gallery">
+                <img src="placeholder-garden.jpg" alt="हरा भरा बागवानी प्रोजेक्ट">
+                <img src="placeholder-meditation.jpg" alt="शांतिपूर्ण ध्यान का दृश्य">
+                <img src="placeholder-books.jpg" alt="पुस्तकों का संग्रह">
+                <img src="placeholder-desk.jpg" alt="लेखन और चिंतन का स्थान">
             </div>
         </section>
+
+       <section>
+    <h2 style="text-align: center; color: #4CAF50; margin-bottom: 2rem;">जीवन के कुछ दृश्य</h2>
+    <div class="photo-gallery">
+        <img src="images/garden_view.jpg" alt="हरा भरा बागवानी प्रोजेक्ट">
+        
+        <img src="images/meditation.jpg" alt="शांतिपूर्ण ध्यान का दृश्य">
+        
+        <img src="images/book_collection.jpg" alt="पुस्तकों का संग्रह">
+        
+        <img src="images/writing_desk.jpg" alt="लेखन और चिंतन का स्थान">
+    </div>
+</section>
+        
     </main>
     
     <footer>
         <p>&copy; 2023 RK Life. All rights reserved.</p>
     </footer>
+    
 </body>
 </html>
