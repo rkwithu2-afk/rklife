@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7f3; /* Light beige background */
+            color: #2c3e50; /* Deep blue for text */
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff; /* Soft white */
+            border-bottom: 1px solid #e0e0e0;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #2e7d32; /* Forest green accent */
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #7f8c8d; /* Muted gray */
+            margin: 0.5rem 0 1rem; /* Added margin-bottom for nav spacing */
+        }
+        /* --- NAVIGATION STYLES ADDED --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #2e7d32; /* Changed text color to green accent */
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #e8f5e8; /* Light green hover background */
+        }
+        /* --- END NAVIGATION STYLES --- */
+        
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .form-section, .info-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem;
+        }
+        .form-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        .form-section h2 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input, textarea {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #2e7d32;
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.3); /* Gentle glow */
+            outline: none;
+        }
+        button {
+            padding: 0.75rem;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1b5e20;
+        }
+        .info-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        .info-section h2 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+        .contact-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .contact-item i {
+            margin-right: 0.5rem;
+            color: #2e7d32;
+            font-size: 1.2rem;
+        }
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e8f5e8; /* Light green for map simulation */
+            border: 1px solid #c8e6c9;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            .form-section, .info-section {
+                margin-bottom: 2rem;
+            }
+            /* --- MOBILE NAV ADJUSTMENTS ADDED --- */
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 0.25rem auto; /* Centered links on mobile */
+            }
+            /* --- END MOBILE NAV --- */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>हमसे संपर्क करें</h1>
+        <p>आपके प्रश्नों और विचारों का स्वागत है। हम आपकी मदद करने के लिए यहाँ हैं।</p>
+        
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gardening.html">Gardening Projects</a>
+            <a href="writings.html">Spiritual Writings</a>
+            <a href="library.html">Book Library</a>
+            <a href="documents.html">Secure Documents</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>संदेश भेजें</h2>
+            <form id="contactForm">
+                <label for="name">नाम</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">ईमेल</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="subject">विषय</label>
+                <input type="text" id="subject" name="subject">
+                
+                <label for="message">संदेश</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">भेजें</button>
+            </form>
+        </section>
+        <section class="info-section">
+            <h2>संपर्क जानकारी</h2>
+            <div class="contact-item">
+                <i>📍</i>
+                <span>देवघर, झारखंड, भारत 814112</span>
+            </div>
+            <div class="contact-item">
+                <i>📞</i>
+                <span>+91 62012 27552</span>
+            </div>
+            <div class="contact-item">
+                <i>✉️</i>
+                <span>rkwithu2@gmail.com</span>
+            </div>
+            <div class="map-placeholder">
+                मानचित्र यहाँ लोड होगा (Placeholder)
+            </div>
+        </section>
+    </main>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            if (name === '' || email === '') {
+                alert('कृपया नाम और ईमेल भरें।');
+                return;
+            }
+            
+            // Simple email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('कृपया एक वैध ईमेल पता दर्ज करें।');
+                return;
+            }
+            
+            // Success message
+            alert('धन्यवाद! आपका संदेश भेज दिया गया है। हम जल्द ही संपर्क करेंगे।');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

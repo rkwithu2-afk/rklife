@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>आध्यात्मिक बुकशेल्फ़</title>
+    <style>
+        /* --- सामान्य और नेविगेशन स्टाइल --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbf8f3; /* शांत बेज पृष्ठभूमि */
+            color: #333;
+        }
+        header {
+            background-color: #4a2d1d; /* गहरा लकड़ी जैसा रंग */
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #5d4037;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            letter-spacing: 1.5px;
+        }
+        main {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 20px auto;
+        }
+
+        /* --- बुकशेल्फ़ डिज़ाइन --- */
+        .bookshelf-container {
+            padding: 30px;
+            background-color: #d1bfa3; /* हल्की लकड़ी की दीवार का रंग */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            perspective: 1200px; /* 3D परिप्रेक्ष्य */
+        }
+        .shelf {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px; /* किताबों के बीच की जगह */
+            align-items: flex-end;
+            padding: 30px 20px 15px 20px;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        /* शेल्फ़ की लकड़ी की पट्टी */
+        .shelf::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 25px; /* शेल्फ़ की मोटाई */
+            background: linear-gradient(to right, #795548, #5d4037, #795548); /* लकड़ी का ग्रेडिएंट */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+            border-radius: 0 0 5px 5px;
+            z-index: 5;
+        }
+
+        /* --- किताब स्टाइलिंग --- */
+        .book {
+            width: 120px;
+            height: 200px;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            transform: rotateY(-15deg) translateZ(-5px); /* शेल्फ़ पर झुका हुआ 3D लुक */
+            position: relative;
+            z-index: 10;
+        }
+        .book:hover {
+            transform: rotateY(0deg) translateZ(20px) translateY(-10px); /* हॉवर पर बाहर और सीधा लाएँ */
+            box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5); /* गहरी छाया */
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            padding: 10px;
+            box-sizing: border-box;
+            box-shadow: inset 7px 0 10px -7px rgba(0, 0, 0, 0.7); /* स्पाइन की छाया */
+            border: 2px solid rgba(255, 255, 255, 0.2); /* कवर पर हल्की बॉर्डर */
+        }
+
+        /* कवर के रंग */
+        .cover-red { background-color: #903030; color: #fff; }
+        .cover-blue { background-color: #34495e; color: #fff; }
+        .cover-green { background-color: #27ae60; color: #fff; }
+        .cover-gold { background-color: #9c6c2b; color: #fff; }
+        .cover-purple { background-color: #6c5b7b; color: #fff; }
+
+        /* किताब का शीर्षक */
+        .book-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            writing-mode: vertical-rl; /* शीर्षक को खड़ी रेखा में लिखें */
+            text-orientation: upright;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            padding: 5px;
+        }
+
+        /* --- मॉडल (बुक रीडर पॉपअप) स्टाइलिंग --- */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 999; /* सबसे ऊपर रखें */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85); /* गहरा बैकग्राउंड */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            height: 90%;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .close-button {
+            color: #5d4037;
+            align-self: flex-end;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .book-content-display {
+            flex-grow: 1;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #5d4037;
+            overflow: auto; /* सामग्री ज़्यादा होने पर स्क्रॉल करें */
+        }
+        
+        /* रिस्पॉन्सिविटी */
+        @media (max-width: 768px) {
+            .book {
+                width: 100px;
+                height: 160px;
+                transform: rotateY(0deg) translateZ(0); /* मोबाइल पर 3D हटाएँ */
+                gap: 20px;
+            }
+            .book:hover {
+                transform: translateY(-5px);
+            }
+            .book-title {
+                font-size: 12px;
+            }
+            header {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>शाश्वत ज्ञान की लाइब्रेरी</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="library.html">General Library</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="bookshelf-container">
+            
+            <div class="shelf">
+                <div class="book" data-book-id="bhagavad-gita">
+                    <div class="book-cover cover-red">
+                        <span class="book-title">भगवद गीता का सार</span>
+                    </div>
+                </div>
+
+                <div class="book" data-book-id="yoga-sutra">
+                    <div class="book-cover cover-blue">
+                        <span class="book-title">पतंजलि योग सूत्र</span>
+                    </div>
+                </div>
+
+                <div class="book" data-book-id="dhyan-shakti">
+                    <div class="book-cover cover-green">
+                        <span class="book-title">ध्यान की अनंत शक्ति</span>
+                    </div>
+                </div>
+                 
+                <div class="book" data-book-id="upanishad">
+                    <div class="book-cover cover-purple">
+                        <span class="book-title">उपनिषद - ज्ञान का सागर</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shelf">
+                <div class="book" data-book-id="buddha-vani">
+                    <div class="book-cover cover-gold">
+                        <span class="book-title">बुद्ध की मधुर वाणी</span>
+                    </div>
+                </div>
+                
+                <div class="book" data-book-id="karma-theory">
+                    <div class="book-cover cover-red">
+                        <span class="book-title">कर्म का सिद्धांत</span>
+                    </div>
+                </div>
+
+                <div class="book" data-book-id="vedanta">
+                    <div class="book-cover cover-blue">
+                        <span class="book-title">वेदांत दर्शन</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="book-reader-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div id="book-content-display" class="book-content-display">
+                </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 RK Life - Spiritual Bookshelf</p>
+    </footer>
+
+    <script>
+        const books = document.querySelectorAll('.book');
+        const modal = document.getElementById('book-reader-modal');
+        const contentDisplay = document.getElementById('book-content-display');
+
+        // किताबें खोलने का फंक्शन
+        books.forEach(book => {
+            book.addEventListener('click', () => {
+                const bookTitle = book.querySelector('.book-title').textContent;
+                const bookId = book.getAttribute('data-book-id');
+                
+                // **** महत्वपूर्ण: यहाँ आपको वास्तविक सामग्री का URL डालना है ****
+                // यदि आप iframe में PDF या HTML लोड करना चाहते हैं:
+                // contentDisplay.innerHTML = `<iframe src="assets/books/${bookId}.pdf" style="width: 100%; height: 100%; border: none;"></iframe>`;
+                
+                // अभी हम केवल एक मैसेज दिखा रहे हैं:
+                contentDisplay.innerHTML = `<iframe src="assets/books/${bookId}.pdf" style="width: 100%; height: 100%; border: none;"></iframe>`;
+                modal.style.display = "flex"; // मॉडल खोलें
+            });
+        });
+
+        // मॉडल बंद करने का फंक्शन
+        function closeModal() {
+            modal.style.display = "none";
+            contentDisplay.innerHTML = ""; // सामग्री साफ़ करें
+        }
+
+        // बाहर क्लिक करने पर बंद करना
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

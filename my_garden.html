@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Garden - Gardening Projects</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        nav {
+            background-color: #4CAF50;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav h1 {
+            margin: 0;
+            color: white;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        header {
+            background-color: #e9f7ef;
+            text-align: center;
+            padding: 2rem;
+        }
+        header h1 {
+            margin: 0;
+            color: #4CAF50;
+        }
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            text-align: center;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .gallery-item p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+            <a href="index.html">Home</a>
+            <a href="gardening.html">Gardening Projects</a>
+            <a href="writings.html">Spiritual Writings</a>
+            <a href="library.html">Book Library</a>
+            <a href="documents.html">Secure Documents</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    
+    <header>
+        <h1>My Garden</h1>
+        <p>Explore photos from my personal garden.</p>
+    </header>
+    
+    <main>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+1" alt="Garden Image 1">
+                <p>Caption for Image 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+2" alt="Garden Image 2">
+                <p>Caption for Image 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+3" alt="Garden Image 3">
+                <p>Caption for Image 3</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+4" alt="Garden Image 4">
+                <p>Caption for Image 4</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+5" alt="Garden Image 5">
+                <p>Caption for Image 5</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+6" alt="Garden Image 6">
+                <p>Caption for Image 6</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+7" alt="Garden Image 7">
+                <p>Caption for Image 7</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+8" alt="Garden Image 8">
+                <p>Caption for Image 8</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+9" alt="Garden Image 9">
+                <p>Caption for Image 9</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+10" alt="Garden Image 10">
+                <p>Caption for Image 10</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+11" alt="Garden Image 11">
+                <p>Caption for Image 11</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+12" alt="Garden Image 12">
+                <p>Caption for Image 12</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+13" alt="Garden Image 13">
+                <p>Caption for Image 13</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+14" alt="Garden Image 14">
+                <p>Caption for Image 14</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+15" alt="Garden Image 15">
+                <p>Caption for Image 15</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/300x200?text=Garden+Image+16" alt="Garden Image 16">
+                <p>Caption for Image 16</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
